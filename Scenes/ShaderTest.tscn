@@ -123,7 +123,7 @@ shader_parameter/shading_noise_period = Vector3(9.5, 9.5, 9.5)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=263076472]
 top_level = true
-offset = Vector2(1.3505867, 0.1112536)
+offset = Vector2(-0.9548298, -0.4589966)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1203476476]
 process_priority = 300
@@ -206,7 +206,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=245629027]
+[node name="Draw" type="Button" parent="CanvasLayer/Control" unique_id=245629027]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -221,4 +221,36 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Draw"
 
-[connection signal="pressed" from="CanvasLayer/Control/Button" to="CanvasLayer/GameManager" method="draw_card"]
+[node name="Sort by Value" type="Button" parent="CanvasLayer/Control" unique_id=123972987]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -152.0
+offset_right = -49.0
+offset_bottom = -121.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Sort by Value"
+
+[node name="Sort by Suit" type="Button" parent="CanvasLayer/Control" unique_id=903959127]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = -68.0
+offset_right = -51.0
+offset_bottom = -37.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Sort by Suit"
+
+[connection signal="pressed" from="CanvasLayer/Control/Draw" to="CanvasLayer/GameManager" method="draw_card"]
+[connection signal="pressed" from="CanvasLayer/Control/Sort by Value" to="CanvasLayer/Hand" method="sort_by_value"]
+[connection signal="pressed" from="CanvasLayer/Control/Sort by Suit" to="CanvasLayer/Hand" method="sort_by_suit"]
