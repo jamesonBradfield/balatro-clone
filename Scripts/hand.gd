@@ -1,6 +1,5 @@
+class_name Hand
 extends Node2D
-
-signal on_cards_resized(count: int)
 
 ## cards in hand.
 @export var cards: Array[Card]
@@ -12,6 +11,9 @@ var cards_center: Vector2
 var cards_x_max: float
 var cards_x_min: float
 var total_hand_width
+##WARNING: use card.atlas.size/2?
+@export var max_spacing: float
+@export var min_spacing: float
 
 
 # Called when the node enters the scene tree for the first time.
@@ -43,7 +45,7 @@ func _update_screen_size():
 ## add card to cards in hand.
 func _draw_card(card: Card) -> void:
 	cards.append(card)
-	on_cards_resized.emit(cards.size())
+	_fan_out_cards()
 
 
 ## fans out cards based on updated screen size.
@@ -59,12 +61,20 @@ func _fan_out_cards():
 	var interval = 0.0
 	if cards.size() > 1:
 		interval = total_hand_width / (cards.size() - 1)
+		#NOTE: the earlier iteration had cards take up the whole space.
+		interval = clamp(interval, min_spacing, max_spacing)
 
-	# 3. Build visuals directly from the Resource array [cite: 7, 8]
+	# 3. Build visuals directly from the Resource array
+	# Calculate the total width currently occupied by the cards
+	var current_hand_width = interval * (cards.size() - 1)
+	var start_x = -(current_hand_width / 2.0)
+
 	for i in range(cards.size()):
 		var card_data = cards[i]
 		var sprite = Sprite2D.new()
 		sprite.texture = card_data.atlas
 		add_child(sprite)
-		var x_pos = cards_x_min + (interval * i)
+
+		# Start at the negative offset and move right
+		var x_pos = start_x + (interval * i)
 		sprite.position = Vector2(x_pos, -32)

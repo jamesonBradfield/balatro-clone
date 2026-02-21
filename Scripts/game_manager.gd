@@ -1,11 +1,20 @@
 extends Node
 @export_dir var cards_folder: String
 var all_cards: Array[Card] = []
+@export var deck: Deck
+@export var hand: Hand
+signal card_drawn(card: Card)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	load_cards_from_folder()
+	# In your main scene script or a connected setup
+	card_drawn.connect(hand._draw_card)
+	# load_cards_from_folder()
+	randomize()
+	deck.deck.shuffle()
+	for index in range(0, 7):
+		card_drawn.emit(deck.deck.pop_front())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

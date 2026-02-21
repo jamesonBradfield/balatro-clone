@@ -9,11 +9,9 @@
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="8_j7v3y"]
 [ext_resource type="AudioStream" uid="uid://dsc2bpnjyacrb" path="res://Sounds/463703__fission9__drone-loop.wav" id="9_w2bbk"]
 [ext_resource type="Script" uid="uid://bup3lgcyn3eo7" path="res://Scripts/hand.gd" id="10_vi5ox"]
-[ext_resource type="Script" uid="uid://c0slnyvaqscl6" path="res://Scripts/Card.gd" id="11_6dx18"]
 [ext_resource type="Shader" uid="uid://d26cgi0wnedl1" path="res://Shader/n64_dither_rdp.gdshader" id="11_j7v3y"]
-[ext_resource type="Resource" uid="uid://dj5tpkmptu1xw" path="res://Resources/0_of_clubs.tres" id="12_njq66"]
-[ext_resource type="Resource" uid="uid://cuaqflwerbunf" path="res://Resources/0_of_diamonds.tres" id="13_4hg3p"]
-[ext_resource type="Resource" uid="uid://o68ysklyieqx" path="res://Resources/0_of_spades.tres" id="14_im8gk"]
+[ext_resource type="Script" uid="uid://d2eqr30lef7o" path="res://Scripts/game_manager.gd" id="11_jh7jo"]
+[ext_resource type="Resource" uid="uid://bh7bui5c1wjj2" path="res://Resources/Decks/Deck.tres" id="12_jh7jo"]
 
 [sub_resource type="Resource" id="Resource_jh7jo"]
 script = ExtResource("7_vi5ox")
@@ -125,7 +123,7 @@ shader_parameter/shading_noise_period = Vector3(9.5, 9.5, 9.5)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=263076472]
 top_level = true
-offset = Vector2(-0.30575123, 0.8822045)
+offset = Vector2(0.23551327, 0.14518395)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1203476476]
 process_priority = 300
@@ -190,5 +188,12 @@ grow_vertical = 2
 
 [node name="Hand" type="Node2D" parent="CanvasLayer" unique_id=866066647]
 script = ExtResource("10_vi5ox")
-cards = Array[ExtResource("11_6dx18")]([ExtResource("12_njq66"), ExtResource("13_4hg3p"), ExtResource("14_im8gk")])
 screen_coverage_percentage = 80
+max_spacing = 24.0
+min_spacing = 0.25
+
+[node name="GameManager" type="Node2D" parent="CanvasLayer" unique_id=1689466538 node_paths=PackedStringArray("hand")]
+script = ExtResource("11_jh7jo")
+cards_folder = "res://Resources/Cards"
+deck = ExtResource("12_jh7jo")
+hand = NodePath("../Hand")
