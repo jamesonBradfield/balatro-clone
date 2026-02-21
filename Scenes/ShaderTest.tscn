@@ -123,7 +123,7 @@ shader_parameter/shading_noise_period = Vector3(9.5, 9.5, 9.5)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=263076472]
 top_level = true
-offset = Vector2(0.23551327, 0.14518395)
+offset = Vector2(1.3505867, 0.1112536)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1203476476]
 process_priority = 300
@@ -179,10 +179,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -197,3 +197,28 @@ script = ExtResource("11_jh7jo")
 cards_folder = "res://Resources/Cards"
 deck = ExtResource("12_jh7jo")
 hand = NodePath("../Hand")
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1640026459]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=245629027]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -97.0
+offset_top = -108.0
+offset_right = -48.0
+offset_bottom = -77.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Draw"
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="CanvasLayer/GameManager" method="draw_card"]

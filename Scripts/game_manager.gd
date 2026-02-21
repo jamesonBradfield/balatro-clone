@@ -14,7 +14,11 @@ func _ready() -> void:
 	randomize()
 	deck.deck.shuffle()
 	for index in range(0, 7):
-		card_drawn.emit(deck.deck.pop_front())
+		draw_card()
+
+
+func draw_card():
+	card_drawn.emit(deck.deck.pop_front())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,3 +46,7 @@ func load_cards_from_folder():
 				file_name = dir.get_next()
 			else:
 				push_error("Failed to access path: " + cards_folder)
+
+
+func _on_button_pressed() -> void:
+	pass  # Replace with function body.
