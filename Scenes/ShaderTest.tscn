@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://c868b0l88jxqm"]
+
+[ext_resource type="Shader" uid="uid://beraj0407exok" path="res://Shader/animated_pixel_art_planet.gdshader" id="1_ipaa6"]
+[ext_resource type="Texture2D" uid="uid://b3oc7vr156plg" path="res://Textures/gold-masks-1x.png" id="3_meac5"]
+[ext_resource type="Shader" uid="uid://b6lae703wy3ph" path="res://Shader/nebula.gdshader" id="4_vet50"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_xognc"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_w2bbk"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_vi5ox"]
+[ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="8_j7v3y"]
+[ext_resource type="AudioStream" uid="uid://dsc2bpnjyacrb" path="res://Sounds/463703__fission9__drone-loop.wav" id="9_w2bbk"]
+[ext_resource type="Script" uid="uid://d2eqr30lef7o" path="res://Scripts/game_manager.gd" id="10_vi5ox"]
+[ext_resource type="Shader" uid="uid://d26cgi0wnedl1" path="res://Shader/n64_dither_rdp.gdshader" id="11_j7v3y"]
+
+[sub_resource type="Resource" id="Resource_jh7jo"]
+script = ExtResource("7_vi5ox")
+
+[sub_resource type="Resource" id="Resource_i4k6q"]
+script = ExtResource("8_j7v3y")
+randomize_noise_seed = 1
+metadata/_custom_type_script = "uid://dimvdouy8g0sv"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i4k6q"]
+shader = ExtResource("11_j7v3y")
+shader_parameter/dither_mode = 1
+shader_parameter/enable_dither = true
+shader_parameter/random_dither_animate = true
+
+[sub_resource type="Gradient" id="Gradient_w2bbk"]
+offsets = PackedFloat32Array(0.5763473, 0.9356288)
+colors = PackedColorArray(0, 0, 0, 1, 0.5145496, 0.5145496, 0.5145496, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w2bbk"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vi5ox"]
+noise = SubResource("FastNoiseLite_w2bbk")
+color_ramp = SubResource("Gradient_w2bbk")
+seamless = true
+in_3d_space = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7v3y"]
+shader = ExtResource("4_vet50")
+shader_parameter/stars_on = true
+shader_parameter/stars_flicker = true
+shader_parameter/timeScaleFactor = 0.04
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_vi5ox")
+shader_parameter/colour_muiltiplier = Color(0.016367247, 0.4657411, 0.83246815, 1)
+shader_parameter/colour_muiltiplier2 = Color(0.25498393, 0.52058953, 0.8968893, 1)
+shader_parameter/brightness = 1.2
+shader_parameter/clouds_resolution = 10.0
+shader_parameter/clouds_intesity = 0.0
+shader_parameter/waveyness = 0.5
+shader_parameter/fragmentation = 7.0
+shader_parameter/distortion = 1.5
+shader_parameter/clouds_alpha = 0.5
+shader_parameter/movement = 1.3
+shader_parameter/blur = 1.4
+shader_parameter/blur2 = 0.01
+shader_parameter/bg_speed = 0.1
+shader_parameter/mid_speed = 0.5
+shader_parameter/fg_speed = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jh7jo"]
+shader = ExtResource("1_ipaa6")
+shader_parameter/pixel_scale = 360.0
+shader_parameter/surface_radius = 0.5
+shader_parameter/surface_palette = ExtResource("3_meac5")
+shader_parameter/background_colour = Color(0, 0, 0, 1)
+shader_parameter/surface_base_rotation = 0.0
+shader_parameter/surface_rotation_speed = 0.0400000493999999
+shader_parameter/surface_primary_cell_amount = 10
+shader_parameter/surface_primary_strength = 1.0
+shader_parameter/surface_primary_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/surface_secondary_enabled = true
+shader_parameter/surface_secondary_cell_amount = 20
+shader_parameter/surface_secondary_strength = 0.3
+shader_parameter/surface_secondary_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/surface_secondary_rotation = 0.0
+shader_parameter/surface_secondary_rotation_speed = 0.0
+shader_parameter/surface_tertiary_enabled = false
+shader_parameter/surface_tertiary_cell_amount = 30
+shader_parameter/surface_tertiary_strength = 0.3
+shader_parameter/surface_tertiary_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/surface_tertiary_rotation = 0.0
+shader_parameter/surface_tertiary_rotation_speed = 0.0
+shader_parameter/surface_bump_strength = 0.3
+shader_parameter/display_cloud_shadows = true
+shader_parameter/cloud_shadow_darkness = 0.25
+shader_parameter/cloud_1_cover = 0.3
+shader_parameter/cloud_1_radius = 0.32
+shader_parameter/cloud_1_cell_amount = 10
+shader_parameter/cloud_1_rotation_speed = 0.03
+shader_parameter/cloud_1_fluctuation_speed = 0.03
+shader_parameter/cloud_1_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/cloud_1_secondary_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/cloud_1_secondary_cell_amount = 10
+shader_parameter/cloud_1_secondary_strength = 0.3
+shader_parameter/cloud_2_cover = 0.0
+shader_parameter/cloud_2_radius = 0.32
+shader_parameter/cloud_2_cell_amount = 10
+shader_parameter/cloud_2_rotation_speed = 0.03
+shader_parameter/cloud_2_fluctuation_speed = 0.03
+shader_parameter/cloud_2_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/cloud_2_secondary_period = Vector3(9.5, 9.5, 9.5)
+shader_parameter/cloud_2_secondary_cell_amount = 10
+shader_parameter/cloud_2_secondary_strength = 0.3
+shader_parameter/atmosphere_radius = 0.34
+shader_parameter/posterise = false
+shader_parameter/shading_mode = 2
+shader_parameter/maximum_brightness = 1.0
+shader_parameter/sun_strength = 2.0
+shader_parameter/shade_transition = 10.0
+shader_parameter/shade_step = 8.0
+shader_parameter/sun_direction = Vector3(1, 0.2, -0.3)
+shader_parameter/dither_levels = 0
+shader_parameter/shading_noise_cell_amount = 40
+shader_parameter/shading_noise_strength = 0.3
+shader_parameter/shading_noise_period = Vector3(9.5, 9.5, 9.5)
+
+[node name="ShaderTest" type="Node2D" unique_id=2071543455]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=263076472]
+top_level = true
+offset = Vector2(-1.3175395, 4.0573874)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1203476476]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("4_xognc")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=1185408978]
+script = ExtResource("6_w2bbk")
+tween_resource = SubResource("Resource_jh7jo")
+noise = SubResource("Resource_i4k6q")
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=956458822]
+stream = ExtResource("9_w2bbk")
+pitch_scale = 0.6
+autoplay = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=1026229997]
+stream = ExtResource("9_w2bbk")
+pitch_scale = 0.24
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1527138375]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1901566200]
+z_index = 2
+material = SubResource("ShaderMaterial_i4k6q")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=925843224]
+z_index = -2
+material = SubResource("ShaderMaterial_j7v3y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer" unique_id=785729805]
+z_index = -2
+material = SubResource("ShaderMaterial_jh7jo")
+custom_minimum_size = Vector2(300, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameManager" type="Node" parent="." unique_id=97385526]
+script = ExtResource("10_vi5ox")
+cards_folder = "res://Resources"

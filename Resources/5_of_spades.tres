@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://dbbi4tp7rwcm5"]
+
+[ext_resource type="Texture2D" uid="uid://duqim8qg5mqbq" path="res://Poker cards 1.3/Poker cards 1.3/1.2 Poker cards.png" id="1_kgw1h"]
+[ext_resource type="Script" uid="uid://c0slnyvaqscl6" path="res://Scripts/Card.gd" id="2_en26n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hooup"]
+atlas = ExtResource("1_kgw1h")
+region = Rect2(240, 128, 48, 64)
+
+[resource]
+script = ExtResource("2_en26n")
+suit = 2
+value = 5
+atlas = SubResource("AtlasTexture_hooup")
