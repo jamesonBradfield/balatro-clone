@@ -10,8 +10,63 @@
 [ext_resource type="AudioStream" uid="uid://dsc2bpnjyacrb" path="res://Sounds/463703__fission9__drone-loop.wav" id="9_w2bbk"]
 [ext_resource type="Script" uid="uid://bup3lgcyn3eo7" path="res://Scripts/hand.gd" id="10_vi5ox"]
 [ext_resource type="Shader" uid="uid://d26cgi0wnedl1" path="res://Shader/n64_dither_rdp.gdshader" id="11_j7v3y"]
-[ext_resource type="Script" uid="uid://d2eqr30lef7o" path="res://Scripts/game_manager.gd" id="11_jh7jo"]
-[ext_resource type="Resource" uid="uid://bh7bui5c1wjj2" path="res://Resources/Decks/Deck.tres" id="12_jh7jo"]
+[ext_resource type="Script" uid="uid://d2eqr30lef7o" path="res://Scripts/GameManager.gd" id="11_jh7jo"]
+[ext_resource type="Script" uid="uid://vluf774s224f" path="res://Scripts/DeckManager.gd" id="12_i4k6q"]
+[ext_resource type="Script" uid="uid://c0slnyvaqscl6" path="res://Scripts/Card.gd" id="13_6ei2w"]
+[ext_resource type="Resource" uid="uid://dj5tpkmptu1xw" path="res://Resources/Cards/0_of_clubs.tres" id="14_2fqf3"]
+[ext_resource type="Resource" uid="uid://cuaqflwerbunf" path="res://Resources/Cards/0_of_diamonds.tres" id="15_1hlyw"]
+[ext_resource type="Resource" uid="uid://b3vj3ppwh6vfc" path="res://Resources/Cards/0_of_hearts.tres" id="16_nffkp"]
+[ext_resource type="Resource" uid="uid://o68ysklyieqx" path="res://Resources/Cards/0_of_spades.tres" id="17_jxjdr"]
+[ext_resource type="Resource" uid="uid://c0gyp72akjrem" path="res://Resources/Cards/2_of_clubs.tres" id="18_0w5tm"]
+[ext_resource type="Resource" uid="uid://bsymw6x3o817q" path="res://Resources/Cards/2_of_diamonds.tres" id="19_2esm2"]
+[ext_resource type="Resource" uid="uid://c0kx2oijjdfv0" path="res://Resources/Cards/2_of_hearts.tres" id="20_k0nnl"]
+[ext_resource type="Resource" uid="uid://dbk02vtn8bmg2" path="res://Resources/Cards/2_of_spades.tres" id="21_qm4vo"]
+[ext_resource type="Resource" uid="uid://comwi3sysfkhb" path="res://Resources/Cards/3_of_clubs.tres" id="22_wvidh"]
+[ext_resource type="Resource" uid="uid://bianxaont1twh" path="res://Resources/Cards/3_of_diamonds.tres" id="23_4eu05"]
+[ext_resource type="Resource" uid="uid://co2yxf724ich8" path="res://Resources/Cards/3_of_hearts.tres" id="24_0dwtv"]
+[ext_resource type="Resource" uid="uid://bahulkcfqdfxc" path="res://Resources/Cards/3_of_spades.tres" id="25_irngv"]
+[ext_resource type="Resource" uid="uid://btdut1vxls6gx" path="res://Resources/Cards/4_of_clubs.tres" id="26_hmswi"]
+[ext_resource type="Resource" uid="uid://c6g01i4h464pg" path="res://Resources/Cards/4_of_diamonds.tres" id="27_8cim8"]
+[ext_resource type="Resource" uid="uid://bnofnqrodrpys" path="res://Resources/Cards/4_of_hearts.tres" id="28_fbjcw"]
+[ext_resource type="Resource" uid="uid://byq71yb1lk8rk" path="res://Resources/Cards/4_of_spades.tres" id="29_jgh51"]
+[ext_resource type="Resource" uid="uid://cqykfdlry4jbp" path="res://Resources/Cards/5_of_clubs.tres" id="30_1lyxh"]
+[ext_resource type="Resource" uid="uid://bupf0rpg5yivv" path="res://Resources/Cards/5_of_diamonds.tres" id="31_i7myb"]
+[ext_resource type="Resource" uid="uid://bs1kpdgn6846o" path="res://Resources/Cards/5_of_hearts.tres" id="32_kce5f"]
+[ext_resource type="Resource" uid="uid://dbbi4tp7rwcm5" path="res://Resources/Cards/5_of_spades.tres" id="33_sy3xi"]
+[ext_resource type="Resource" uid="uid://bs002u8bx7tw1" path="res://Resources/Cards/6_of_clubs.tres" id="34_msqyh"]
+[ext_resource type="Resource" uid="uid://c06cag68gsthy" path="res://Resources/Cards/6_of_diamonds.tres" id="35_k4137"]
+[ext_resource type="Resource" uid="uid://voqphpqntqfb" path="res://Resources/Cards/6_of_hearts.tres" id="36_ilxbh"]
+[ext_resource type="Resource" uid="uid://cotyys8kdsb6s" path="res://Resources/Cards/6_of_spades.tres" id="37_dyk0w"]
+[ext_resource type="Resource" uid="uid://6eowp25p1g7o" path="res://Resources/Cards/7_of_clubs.tres" id="38_fr7pa"]
+[ext_resource type="Resource" uid="uid://cu5l0w2iweeku" path="res://Resources/Cards/7_of_diamonds.tres" id="39_3023p"]
+[ext_resource type="Resource" uid="uid://l71bqb5ncm8t" path="res://Resources/Cards/7_of_hearts.tres" id="40_mr1ob"]
+[ext_resource type="Resource" uid="uid://bfh43odbubgk7" path="res://Resources/Cards/7_of_spades.tres" id="41_mtwk1"]
+[ext_resource type="Resource" uid="uid://dtoswj4utgdol" path="res://Resources/Cards/8_of_clubs.tres" id="42_yjcp2"]
+[ext_resource type="Resource" uid="uid://bs5vcn08nlq7l" path="res://Resources/Cards/8_of_diamonds.tres" id="43_mnwlx"]
+[ext_resource type="Resource" uid="uid://ibnxkmbs0yig" path="res://Resources/Cards/8_of_hearts.tres" id="44_q13d2"]
+[ext_resource type="Resource" uid="uid://drgpelp3ntcq5" path="res://Resources/Cards/8_of_spades.tres" id="45_y3hnv"]
+[ext_resource type="Resource" uid="uid://bh7my7f7plr0g" path="res://Resources/Cards/9_of_clubs.tres" id="46_uq0fh"]
+[ext_resource type="Resource" uid="uid://bso6a8fn8speq" path="res://Resources/Cards/9_of_diamonds.tres" id="47_6hd8r"]
+[ext_resource type="Resource" uid="uid://dnwqkdcpgrajy" path="res://Resources/Cards/9_of_hearts.tres" id="48_jfver"]
+[ext_resource type="Resource" uid="uid://dw1jmig4xu50q" path="res://Resources/Cards/9_of_spades.tres" id="49_qj5wq"]
+[ext_resource type="Resource" uid="uid://c0wh3gk7fhwvn" path="res://Resources/Cards/10_of_clubs.tres" id="50_ahy04"]
+[ext_resource type="Resource" uid="uid://dsqpi6hm7xd5y" path="res://Resources/Cards/10_of_diamonds.tres" id="51_plx2j"]
+[ext_resource type="Resource" uid="uid://dr14vh6qy3wh6" path="res://Resources/Cards/10_of_hearts.tres" id="52_vwej0"]
+[ext_resource type="Resource" uid="uid://cctjhuul82lt0" path="res://Resources/Cards/10_of_spades.tres" id="53_ssrw1"]
+[ext_resource type="Resource" uid="uid://drfhswj05qkj7" path="res://Resources/Cards/ace_of_clubs.tres" id="54_0u2g3"]
+[ext_resource type="Resource" uid="uid://drcjsdwi85frf" path="res://Resources/Cards/ace_of_diamonds.tres" id="55_mfh4m"]
+[ext_resource type="Resource" uid="uid://daer6h8oc8bni" path="res://Resources/Cards/ace_of_hearts.tres" id="56_f54kf"]
+[ext_resource type="Resource" uid="uid://dcafte3xwer1l" path="res://Resources/Cards/ace_of_spades.tres" id="57_l8xph"]
+[ext_resource type="Resource" uid="uid://34hf4l3kel6w" path="res://Resources/Cards/jack_of_clubs.tres" id="58_6a20f"]
+[ext_resource type="Resource" uid="uid://dtqs1rkoo2p6" path="res://Resources/Cards/jack_of_diamonds.tres" id="59_hsbbg"]
+[ext_resource type="Resource" uid="uid://cnpu05t45wsc4" path="res://Resources/Cards/jack_of_hearts.tres" id="60_5s6np"]
+[ext_resource type="Resource" uid="uid://dxsge37x4p16f" path="res://Resources/Cards/jack_of_spades.tres" id="61_a3fkl"]
+[ext_resource type="Resource" uid="uid://e57wk6dyjp2f" path="res://Resources/Cards/joker_of_hearts.tres" id="62_htk2v"]
+[ext_resource type="Resource" uid="uid://vbqyegjdp11h" path="res://Resources/Cards/king_of_hearts.tres" id="63_gc8j6"]
+[ext_resource type="Resource" uid="uid://c4wmilvhkd242" path="res://Resources/Cards/queen_of_clubs.tres" id="64_6n7r1"]
+[ext_resource type="Resource" uid="uid://6djs4prr0044" path="res://Resources/Cards/queen_of_diamonds.tres" id="65_yhjfs"]
+[ext_resource type="Resource" uid="uid://0md1q85o06mx" path="res://Resources/Cards/queen_of_hearts.tres" id="66_hvhhr"]
+[ext_resource type="Resource" uid="uid://dphiagptfkcaf" path="res://Resources/Cards/queen_of_spades.tres" id="67_t5u1s"]
 
 [sub_resource type="Resource" id="Resource_jh7jo"]
 script = ExtResource("7_vi5ox")
@@ -123,7 +178,7 @@ shader_parameter/shading_noise_period = Vector3(9.5, 9.5, 9.5)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=263076472]
 top_level = true
-offset = Vector2(-0.9548298, -0.4589966)
+offset = Vector2(-0.13803425, 0.5135231)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1203476476]
 process_priority = 300
@@ -192,10 +247,9 @@ screen_coverage_percentage = 80
 max_spacing = 24.0
 min_spacing = 0.25
 
-[node name="GameManager" type="Node2D" parent="CanvasLayer" unique_id=1689466538 node_paths=PackedStringArray("hand")]
+[node name="GameManager" type="Node2D" parent="CanvasLayer" unique_id=1689466538 node_paths=PackedStringArray("deck", "hand")]
 script = ExtResource("11_jh7jo")
-cards_folder = "res://Resources/Cards"
-deck = ExtResource("12_jh7jo")
+deck = NodePath("../DeckManager")
 hand = NodePath("../Hand")
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1640026459]
@@ -251,6 +305,11 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "Sort by Suit"
 
-[connection signal="pressed" from="CanvasLayer/Control/Draw" to="CanvasLayer/GameManager" method="draw_card"]
+[node name="DeckManager" type="Node" parent="CanvasLayer" unique_id=735629443]
+script = ExtResource("12_i4k6q")
+starting_deck = Array[ExtResource("13_6ei2w")]([ExtResource("14_2fqf3"), ExtResource("15_1hlyw"), ExtResource("16_nffkp"), ExtResource("17_jxjdr"), ExtResource("18_0w5tm"), ExtResource("19_2esm2"), ExtResource("20_k0nnl"), ExtResource("21_qm4vo"), ExtResource("22_wvidh"), ExtResource("23_4eu05"), ExtResource("24_0dwtv"), ExtResource("25_irngv"), ExtResource("26_hmswi"), ExtResource("27_8cim8"), ExtResource("28_fbjcw"), ExtResource("29_jgh51"), ExtResource("30_1lyxh"), ExtResource("31_i7myb"), ExtResource("32_kce5f"), ExtResource("33_sy3xi"), ExtResource("34_msqyh"), ExtResource("35_k4137"), ExtResource("36_ilxbh"), ExtResource("37_dyk0w"), ExtResource("38_fr7pa"), ExtResource("39_3023p"), ExtResource("40_mr1ob"), ExtResource("41_mtwk1"), ExtResource("42_yjcp2"), ExtResource("43_mnwlx"), ExtResource("44_q13d2"), ExtResource("45_y3hnv"), ExtResource("46_uq0fh"), ExtResource("47_6hd8r"), ExtResource("48_jfver"), ExtResource("49_qj5wq"), ExtResource("50_ahy04"), ExtResource("51_plx2j"), ExtResource("52_vwej0"), ExtResource("53_ssrw1"), ExtResource("54_0u2g3"), ExtResource("55_mfh4m"), ExtResource("56_f54kf"), ExtResource("57_l8xph"), ExtResource("58_6a20f"), ExtResource("59_hsbbg"), ExtResource("60_5s6np"), ExtResource("61_a3fkl"), ExtResource("62_htk2v"), ExtResource("63_gc8j6"), ExtResource("64_6n7r1"), ExtResource("65_yhjfs"), ExtResource("66_hvhhr"), ExtResource("67_t5u1s")])
+metadata/_custom_type_script = "uid://vluf774s224f"
+
+[connection signal="pressed" from="CanvasLayer/Control/Draw" to="CanvasLayer/DeckManager" method="draw_card"]
 [connection signal="pressed" from="CanvasLayer/Control/Sort by Value" to="CanvasLayer/Hand" method="sort_by_value"]
 [connection signal="pressed" from="CanvasLayer/Control/Sort by Suit" to="CanvasLayer/Hand" method="sort_by_suit"]
