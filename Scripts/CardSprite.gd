@@ -28,3 +28,7 @@ func toggle_selection() -> void:
 func update_visuals() -> void:
 	modulate = Color(1.2, 1.2, 1.2) if selected else Color(1.0, 1.0, 1.0)
 	position.y = -64 if selected else -32
+
+
+func get_card_name() -> String:
+	return resource.get_card_name()

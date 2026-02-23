@@ -67,6 +67,7 @@
 [ext_resource type="Resource" uid="uid://6djs4prr0044" path="res://Resources/Cards/queen_of_diamonds.tres" id="65_yhjfs"]
 [ext_resource type="Resource" uid="uid://0md1q85o06mx" path="res://Resources/Cards/queen_of_hearts.tres" id="66_hvhhr"]
 [ext_resource type="Resource" uid="uid://dphiagptfkcaf" path="res://Resources/Cards/queen_of_spades.tres" id="67_t5u1s"]
+[ext_resource type="Script" uid="uid://bhvt7fnik1pq7" path="res://Scripts/ScoreManager.gd" id="68_2fqf3"]
 
 [sub_resource type="Resource" id="Resource_jh7jo"]
 script = ExtResource("7_vi5ox")
@@ -178,7 +179,7 @@ shader_parameter/shading_noise_period = Vector3(9.5, 9.5, 9.5)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=263076472]
 top_level = true
-offset = Vector2(-0.13803425, 0.5135231)
+offset = Vector2(-1.8166385, -0.25439584)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1203476476]
 process_priority = 300
@@ -241,16 +242,18 @@ offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Hand" type="Node2D" parent="CanvasLayer" unique_id=866066647]
+[node name="Hand" type="Node2D" parent="CanvasLayer" unique_id=38573362]
 script = ExtResource("10_vi5ox")
-screen_coverage_percentage = 80
+coverage_percentage = null
 max_spacing = 24.0
 min_spacing = 0.25
+metadata/_custom_type_script = "uid://bup3lgcyn3eo7"
 
-[node name="GameManager" type="Node2D" parent="CanvasLayer" unique_id=1689466538 node_paths=PackedStringArray("deck", "hand")]
+[node name="GameManager" type="Node2D" parent="CanvasLayer" unique_id=1689466538 node_paths=PackedStringArray("deck", "hand", "scoring")]
 script = ExtResource("11_jh7jo")
 deck = NodePath("../DeckManager")
 hand = NodePath("../Hand")
+scoring = NodePath("../ScoreManager")
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1640026459]
 layout_mode = 3
@@ -274,6 +277,21 @@ offset_bottom = -77.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Draw"
+
+[node name="Draw2" type="Button" parent="CanvasLayer/Control" unique_id=2093789362]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -97.0
+offset_top = -193.0
+offset_right = -48.0
+offset_bottom = -162.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Play"
 
 [node name="Sort by Value" type="Button" parent="CanvasLayer/Control" unique_id=123972987]
 layout_mode = 1
@@ -310,6 +328,10 @@ script = ExtResource("12_i4k6q")
 starting_deck = Array[ExtResource("13_6ei2w")]([ExtResource("14_2fqf3"), ExtResource("15_1hlyw"), ExtResource("16_nffkp"), ExtResource("17_jxjdr"), ExtResource("18_0w5tm"), ExtResource("19_2esm2"), ExtResource("20_k0nnl"), ExtResource("21_qm4vo"), ExtResource("22_wvidh"), ExtResource("23_4eu05"), ExtResource("24_0dwtv"), ExtResource("25_irngv"), ExtResource("26_hmswi"), ExtResource("27_8cim8"), ExtResource("28_fbjcw"), ExtResource("29_jgh51"), ExtResource("30_1lyxh"), ExtResource("31_i7myb"), ExtResource("32_kce5f"), ExtResource("33_sy3xi"), ExtResource("34_msqyh"), ExtResource("35_k4137"), ExtResource("36_ilxbh"), ExtResource("37_dyk0w"), ExtResource("38_fr7pa"), ExtResource("39_3023p"), ExtResource("40_mr1ob"), ExtResource("41_mtwk1"), ExtResource("42_yjcp2"), ExtResource("43_mnwlx"), ExtResource("44_q13d2"), ExtResource("45_y3hnv"), ExtResource("46_uq0fh"), ExtResource("47_6hd8r"), ExtResource("48_jfver"), ExtResource("49_qj5wq"), ExtResource("50_ahy04"), ExtResource("51_plx2j"), ExtResource("52_vwej0"), ExtResource("53_ssrw1"), ExtResource("54_0u2g3"), ExtResource("55_mfh4m"), ExtResource("56_f54kf"), ExtResource("57_l8xph"), ExtResource("58_6a20f"), ExtResource("59_hsbbg"), ExtResource("60_5s6np"), ExtResource("61_a3fkl"), ExtResource("62_htk2v"), ExtResource("63_gc8j6"), ExtResource("64_6n7r1"), ExtResource("65_yhjfs"), ExtResource("66_hvhhr"), ExtResource("67_t5u1s")])
 metadata/_custom_type_script = "uid://vluf774s224f"
 
+[node name="ScoreManager" type="Node" parent="CanvasLayer" unique_id=1932771559]
+script = ExtResource("68_2fqf3")
+
 [connection signal="pressed" from="CanvasLayer/Control/Draw" to="CanvasLayer/DeckManager" method="draw_card"]
+[connection signal="pressed" from="CanvasLayer/Control/Draw2" to="CanvasLayer/Hand" method="_play_hand"]
 [connection signal="pressed" from="CanvasLayer/Control/Sort by Value" to="CanvasLayer/Hand" method="sort_by_value"]
 [connection signal="pressed" from="CanvasLayer/Control/Sort by Suit" to="CanvasLayer/Hand" method="sort_by_suit"]

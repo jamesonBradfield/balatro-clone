@@ -3,6 +3,8 @@ extends ResponsiveRegion
 
 var sorting_by: SORTING
 enum SORTING { VALUE, SUIT }
+var selected: Array[Card]
+signal hand_played(sprite: Array[CardSprite])
 
 
 func _ready() -> void:
@@ -28,7 +30,13 @@ func _draw_card(card: Card) -> void:
 	_update_hand_layout()
 
 
+func _play_hand() -> void:
+	hand_played.emit(selected)
+	selected.clear()
+
+
 func _on_card_toggled(card: CardSprite) -> void:
+	selected.append(card.resource)
 	_update_hand_layout()
 
 

@@ -3,9 +3,11 @@ extends Node
 
 @export var deck: DeckManager
 @export var hand: Hand
+@export var scoring: ScoreManager
 
 
 func _ready() -> void:
+	hand.hand_played.connect(scoring._hand_played)
 	# Connect the deck's signal directly to the hand's draw function
 	deck.card_drawn.connect(hand._draw_card)
 
